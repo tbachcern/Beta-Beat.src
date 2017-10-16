@@ -267,13 +267,11 @@ def _run_tracking_model(directory, options):
         return
     print("Creating model and tracking...")
     madx_script = _get_madx_script(BEAM, directory, options)
-    with silence():
-        madx_wrapper.resolve_and_run_string(
-            madx_script,
-            madx_path=MADX_PATH,
-            output_file=os.path.join(directory, 'job.test.madx'),
-            log_file=os.path.join(directory, 'madx_log.txt')
-        )
+    madx_wrapper.resolve_and_run_string(
+        madx_script,
+        madx_path=MADX_PATH,
+        output_file=os.path.join(directory, 'job.test.madx'),
+    )
     track_path = _get_track_path(directory, one=True)
     with silence():
         if options.addnoise:
