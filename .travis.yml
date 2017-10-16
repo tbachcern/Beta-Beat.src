@@ -11,4 +11,5 @@ env:
  - EXCITATION=--acd
  - EXCITATION=--adt 
  - EXCITATION= 
-script: ./runTests.sh
+script:
+ - travis_wait 30 ./runTests.sh
